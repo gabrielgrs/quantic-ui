@@ -8,8 +8,8 @@ export default {
 
 export const Component = () => (
   <Fragment>
-    <Textfield label="teste" />
-    <Textfield />
+    <Textfield fullWidth label="teste" />
+    <Textfield fullWidth />
   </Fragment>
 )
 

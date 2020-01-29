@@ -30,14 +30,18 @@ function getBorder({ theme, isOutline, color }) {
 }
 
 export const StyledButton = styled.button`
-  background: ${getBackground};
   color: ${props => props.theme.colors.white};
+  box-shadow: ${props => props.theme.shadows.box.soft};
+  font-family: ${props => props.theme.tipographies.type.primary};
+  font-size: ${props => `${props.theme.tipographies.size.sm}px`};
+  background: ${getBackground};
   border: ${getBorder};
   opacity: ${getOpacity};
   cursor: ${getCursor};
-  padding: 10px 15px;
+  padding: 10px 12px;
   min-width: 120px;
   width: ${getWidth};
+  border-radius: ${props => `${props.theme.border.radius}px`};
 
   /* Teste  */
   position: relative;

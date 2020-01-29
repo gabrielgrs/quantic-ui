@@ -8,7 +8,7 @@ export default {
 
 export const Component = () => (
   <Fragment>
-    <Textarea label="teste" />
+    <Textarea fullWidth rows={5} label="teste" />
     <Textarea />
   </Fragment>
 )
