@@ -1,9 +1,11 @@
 import { addons } from '@storybook/addons'
-import { themes } from '@storybook/theming'
+import { create } from '@storybook/theming/create'
 
 addons.setConfig({
-  theme: themes.light,
-  brandTitle: 'Quantic UI',
-  brandUrl: 'https://quantic-ui.netlify.com',
-  brandImage: 'https://placehold.it/350x150'
+  theme: create({
+    base: 'light',
+    brandTitle: 'Quantic UI',
+    brandUrl: 'http://quantic-ui.netlify.com/',
+    brandImage: 'https://placehold.it/350x150'
+  })
 })
