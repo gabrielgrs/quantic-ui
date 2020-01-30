@@ -6,12 +6,9 @@ export default {
   component: Checkbox
 }
 
-export const Component = () => (
+export const Base = () => (
   <Fragment>
     <Checkbox label="Checkbox" />
+    <Checkbox label="Checkbox" checked />
   </Fragment>
 )
-
-Component.story = {
-  name: 'Checkbox'
-}

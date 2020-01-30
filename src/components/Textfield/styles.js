@@ -10,7 +10,7 @@ export const StyledTextField = styled.input`
   background-image: none;
   background-clip: padding-box;
   border: 2px solid #dbd3e9;
-  border-radius: 0.25rem;
+  border-radius: ${props => `${props.theme.border.radius}px`};
   -webkit-transition: border-color 0.15s ease-in-out,
     -webkit-box-shadow 0.15s ease-in-out;
   transition: border-color 0.15s ease-in-out,
@@ -18,7 +18,6 @@ export const StyledTextField = styled.input`
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
     -webkit-box-shadow 0.15s ease-in-out;
-  margin: 5px 0;
   width: ${({ fullWidth }) => (fullWidth ? '100%' : 'inherit')};
   box-sizing: border-box;
 
@@ -26,10 +25,4 @@ export const StyledTextField = styled.input`
     border: 2px solid ${({ theme }) => theme.colors.primary};
     outline: 0;
   }
-`
-
-export const StyledLabel = styled.label`
-  font-size: 0.8em;
-  letter-spacing: 1px;
-  font-weight: 600;
 `

@@ -1,27 +1,26 @@
-import React, { useState } from 'react'
-import styled from 'styled-components'
+import React from 'react'
+import {
+  StyledCheckbox,
+  StyledCheckboxContainer,
+  StyledHiddenCheckbox,
+  StyledIcon
+} from './styles'
+import { Label } from '..'
 
-const Styled = styled.div`
-  height: 100%;
-`
-
-const Checkbox = ({ onChange, value, label, name }) => {
-  const [isChecked, setIsChecked] = useState(!!value)
-  return (
-    <Styled
-      onClick={() => {
-        onChange({ value: !isChecked }, name)
-        setIsChecked(!isChecked)
-      }}
-    >
-      <div>
-        <label>{label}</label>
-      </div>
-      <div>
-        <input type="checkbox" name={name} checked={isChecked} />
-      </div>
-    </Styled>
-  )
-}
+const Checkbox = ({ className, checked, label, ...props }) => (
+  <div>
+    <Label isRequired={props.isRequired}>{label}</Label>
+    <div>
+      <StyledCheckboxContainer className={className}>
+        <StyledHiddenCheckbox checked={checked} {...props} />
+        <StyledCheckbox checked={checked}>
+          <StyledIcon viewBox="0 0 24 24">
+            <polyline points="20 6 9 17 4 12" />
+          </StyledIcon>
+        </StyledCheckbox>
+      </StyledCheckboxContainer>
+    </div>
+  </div>
+)
 
 export default Checkbox

@@ -5,7 +5,7 @@ export default {
   title: 'Grid/Column'
 }
 
-export const Component = () => (
+export const Base = () => (
   <Fragment>
     <Column size={4}>Column with size 4</Column>
     <Column size={6}>Column with size 6</Column>

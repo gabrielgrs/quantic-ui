@@ -6,13 +6,9 @@ export default {
   component: Textfield
 }
 
-export const Component = () => (
+export const Base = () => (
   <Fragment>
     <Textfield fullWidth label="teste" />
     <Textfield fullWidth />
   </Fragment>
 )
-
-Component.story = {
-  name: 'Textfield'
-}

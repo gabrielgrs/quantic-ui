@@ -10,6 +10,6 @@ export const Base = () => (
     <Button onClick={() => alert('action')}> Button </Button>
     <Button isLoading> Loading </Button>
     <Button isDisabled> Disabled </Button>
-    <Button color="danger"> Danger Color </Button>
+    <Button color="danger">Danger Color</Button>
   </Fragment>
 )

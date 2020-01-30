@@ -5,4 +5,4 @@ export default {
   title: 'Grid/Container'
 }
 
-export const Component = () => <Container>Container</Container>
+export const Base = () => <Container>Container</Container>

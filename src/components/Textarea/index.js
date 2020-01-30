@@ -1,13 +1,11 @@
 import React from 'react'
-
-import { StyledTextarea, StyledLabel } from './styles'
+import { StyledTextarea } from './styles'
+import { Label } from '..'
 
 function Textarea({ onChange, value, label, type, ...props }) {
   return (
     <div>
-      <StyledLabel>
-        {label} {props.isRequired ? '*' : ''}
-      </StyledLabel>
+      <Label isRequired={props.isRequired}> {label} </Label>
       <div>
         <StyledTextarea
           {...props}

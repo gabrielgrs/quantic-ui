@@ -6,10 +6,10 @@ export default {
   component: Select
 }
 
-export const Component = () => {
+export const Base = () => {
   const options = [
-    { id: 1, text: 'teste 1' },
-    { id: 2, text: 'teste 2' }
+    { value: 1, label: 'teste 1' },
+    { value: 2, label: 'teste 2' }
   ]
   return (
     <Fragment>
@@ -17,8 +17,4 @@ export const Component = () => {
       <Select options={options} />
     </Fragment>
   )
-}
-
-Component.story = {
-  name: 'Select'
 }

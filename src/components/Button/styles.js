@@ -32,7 +32,6 @@ function getBorder({ theme, isOutline, color }) {
 export const StyledButton = styled.button`
   color: ${props => props.theme.colors.white};
   box-shadow: ${props => props.theme.shadows.box.soft};
-  font-family: ${props => props.theme.tipographies.type.primary};
   font-size: ${props => `${props.theme.tipographies.size.sm}px`};
   background: ${getBackground};
   border: ${getBorder};

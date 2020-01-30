@@ -1,6 +1,6 @@
 const tipographies = {
   type: {
-    primary: '"Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif'
+    primary: 'Courier New, Courier, monospace'
   },
   weight: {
     regular: 400,
@@ -19,7 +19,7 @@ const tipographies = {
 }
 
 const colors = {
-  primary: '#003C69',
+  primary: '#1890ff',
   secondary: '#263DC2',
   grey: '#757575',
   darkGrey: '#B0B0B0',

@@ -5,7 +5,7 @@ export default {
   title: 'Grid/Row'
 }
 
-export const Component = () => (
+export const Base = () => (
   <Fragment>
     <Row>First Row</Row>
     <Row>Second Row</Row>

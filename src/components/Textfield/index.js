@@ -1,46 +1,26 @@
 import React from 'react'
 import InputMask from 'react-input-mask'
 import PropTypes from 'prop-types'
-import { StyledTextField, StyledLabel } from './styles'
+import { StyledTextField } from './styles'
+import { Label } from '..'
 
-function Textfield(
-  onChange,
-  name,
-  value,
-  label,
-  type,
-  mask,
-  fullWidth,
-  ...props
-) {
+function Textfield(props) {
+  const { onChange, name, value, label, type, mask, fullWidth } = props
   return (
     <div>
-      <StyledLabel>
-        {label} {props.isRequired ? '*' : ''}
-      </StyledLabel>
+      <Label isRequired={props.isRequired}> {label} </Label>
       <div>
-        {mask ? (
-          <InputMask
-            mask={mask}
-            value={value}
-            name={name}
-            type={type}
-            onChange={onChange}
-          >
-            {inputProps => (
-              <StyledTextField fullWidth={fullWidth} {...inputProps} />
-            )}
-          </InputMask>
-        ) : (
-          <StyledTextField
-            {...props}
-            fullWidth={fullWidth}
-            name={name}
-            value={value}
-            type={type}
-            onChange={onChange}
-          />
-        )}
+        <InputMask
+          mask={mask}
+          value={value}
+          name={name}
+          type={type}
+          onChange={onChange}
+        >
+          {inputProps => (
+            <StyledTextField fullWidth={fullWidth} {...inputProps} />
+          )}
+        </InputMask>
       </div>
     </div>
   )

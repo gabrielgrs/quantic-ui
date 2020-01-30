@@ -49,6 +49,7 @@
     "auto": "^9.4.1",
     "polished": "^3.4.2",
     "react-input-mask": "^2.0.4",
+    "react-select": "^3.0.8",
     "styled-components": "^5.0.0"
   }
 }

@@ -6,13 +6,9 @@ export default {
   component: Textarea
 }
 
-export const Component = () => (
+export const Base = () => (
   <Fragment>
     <Textarea fullWidth rows={5} label="teste" />
     <Textarea />
   </Fragment>
 )
-
-Component.story = {
-  name: 'Textarea'
-}
