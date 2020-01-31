@@ -4,7 +4,7 @@ import { StyledColumn } from './styles'
 
 function Column({ size, children, ...props }) {
   return (
-    <StyledColumn quantity={size} {...props}>
+    <StyledColumn size={size} {...props}>
       {children}
     </StyledColumn>
   )

@@ -47,7 +47,9 @@
     "@storybook/preset-create-react-app": "^1.5.2",
     "@storybook/react": "^5.3.9",
     "auto": "^9.4.1",
+    "date-fns": "^2.9.0",
     "polished": "^3.4.2",
+    "react-datepicker": "^2.11.0",
     "react-input-mask": "^2.0.4",
     "react-select": "^3.0.8",
     "styled-components": "^5.0.0"
