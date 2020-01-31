@@ -1,7 +1,6 @@
 {
   "name": "quantic-design",
   "version": "0.1.0",
-  "private": true,
   "description": "quantic design system",
   "main": "dist/index.js",
   "repository": "https://github.com/gabrielgrs/quantic-design",
