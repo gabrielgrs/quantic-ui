@@ -1,9 +1,9 @@
 {
-  "name": "quantic-design",
-  "version": "0.1.0",
+  "name": "quantic-ui",
+  "version": "0.0.1",
   "description": "quantic design system",
   "main": "dist/index.js",
-  "repository": "https://github.com/gabrielgrs/quantic-design",
+  "repository": "https://github.com/gabrielgrs/quantic-ui",
   "author": "Gabriel Ribeiro <grxgabriel@gmail.com>",
   "license": "MIT",
   "dependencies": {
@@ -14,7 +14,8 @@
   "scripts": {
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
-    "build": "BABEL_ENV=production babel src -d dist"
+    "build": "BABEL_ENV=production babel src -d dist",
+    "prepublish": "yarn build"
   },
   "eslintConfig": {
     "extends": "react-app"
