@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-const getWidthByQuantity = quantity => {
-  switch (quantity) {
+const getWidthByQuantity = size => {
+  switch (size) {
     case 1:
       return '4.33%'
     case 2:
@@ -41,6 +41,6 @@ export const StyledColumn = styled.div`
   min-height: 0.125rem;
 
   @media only screen and (min-width: 45em) {
-    width: ${props => getWidthByQuantity(props.quantity)};
+    width: ${props => getWidthByQuantity(props.size)};
   }
 `

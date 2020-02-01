@@ -31,7 +31,7 @@ const colors = {
 
 const opacities = {
   default: 0.5,
-  loading: 0.8
+  soft: 0.8
 }
 
 const shadows = {

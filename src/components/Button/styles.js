@@ -9,7 +9,7 @@ function getBackground({ theme, color, isOutline }) {
 
 function getOpacity({ theme, isDisabled, isLoading }) {
   if (isDisabled) return theme.opacities.default
-  if (isLoading) return theme.opacities.loading
+  if (isLoading) return theme.opacities.soft
   return 1
 }
 
