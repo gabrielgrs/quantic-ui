@@ -2,7 +2,7 @@ import React from 'react'
 import { StyledTextarea } from './styles'
 import { Label } from '..'
 
-function Textarea({ onChange, value, label, type, ...props }) {
+function TextArea({ onChange, value, label, type, ...props }) {
   return (
     <div>
       <Label isRequired={props.isRequired}> {label} </Label>
@@ -18,4 +18,4 @@ function Textarea({ onChange, value, label, type, ...props }) {
   )
 }
 
-export default Textarea
+export default TextArea
