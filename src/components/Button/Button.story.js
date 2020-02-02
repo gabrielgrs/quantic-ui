@@ -7,7 +7,7 @@ export default {
 
 export const Base = () => (
   <Fragment>
-    <Button onClick={() => alert('action')}> Button </Button>
+    <Button onClick={() => console.log('oi')}> Button </Button>
     <Button isLoading> Loading </Button>
     <Button isDisabled> Disabled </Button>
     <Button color="danger">Danger Color</Button>

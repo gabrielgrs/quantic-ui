@@ -21,7 +21,7 @@ function TextField(props) {
 }
 
 TextField.propTypes = {
-  name: PropTypes.string.isRequired,
+  name: PropTypes.string,
   value: PropTypes.oneOf([PropTypes.string, PropTypes.number]).isRequired,
   onChange: PropTypes.func.isRequired,
   label: PropTypes.string,
@@ -31,7 +31,8 @@ TextField.propTypes = {
 
 TextField.defaultProps = {
   fullWidth: false,
-  type: 'text'
+  type: 'text',
+  name: ''
 }
 
 export default TextField

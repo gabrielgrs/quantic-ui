@@ -1,6 +1,9 @@
 const tipographies = {
   type: {
-    primary: 'Courier New, Courier, monospace'
+    primary:
+      "'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'sans-serif'",
+    // '"Nunito Sans", -apple-system, ".SFNSText-Regular", "San Francisco", BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;',
+    secondary: 'Montserrat'
   },
   weight: {
     regular: 400,
@@ -19,8 +22,8 @@ const tipographies = {
 }
 
 const colors = {
-  primary: '#1890ff',
-  secondary: '#263DC2',
+  primary: '#27AAE1',
+  secondary: '#43DBA2',
   grey: '#B0B0B0',
   darkGrey: '#757575',
   lightSilver: '#ECEFF1',

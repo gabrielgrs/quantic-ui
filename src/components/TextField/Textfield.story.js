@@ -8,7 +8,12 @@ export default {
 
 export const Base = () => (
   <Fragment>
-    <TextField fullWidth label="With Label" />
-    <TextField fullWidth placeholder="Placeholder" />
+    <TextField value={''} onChange={() => {}} fullWidth label="With Label" />
+    <TextField
+      value={''}
+      onChange={() => {}}
+      fullWidth
+      placeholder="Placeholder"
+    />
   </Fragment>
 )

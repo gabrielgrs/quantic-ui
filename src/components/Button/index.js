@@ -27,14 +27,15 @@ Button.propTypes = {
     'danger',
     'white'
   ]),
-  onClick: PropTypes.func.isRequired
+  onClick: PropTypes.func
 }
 
 Button.defaultProps = {
   isLoading: false,
   isDisabled: false,
   size: 'default',
-  color: 'primary'
+  color: 'primary',
+  onClick: () => {}
 }
 
 export default Button
