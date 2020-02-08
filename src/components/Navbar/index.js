@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import Button from '../Button'
 
 const StyledNav = styled.nav`
+  z-index: 997;
   width: 100%;
   display: flex;
   justify-content: flex-end;
@@ -73,7 +74,7 @@ const StyledBrand = styled.div`
 
 const StyledSearchBar = styled.input`
   z-index: 998;
-  position: absolute;
+  position: fixed;
   border: none;
   left: 0;
   top: 0;
@@ -149,7 +150,9 @@ function Navbar({ children, brand, hasSearchBar, onSubmitSearch, ...props }) {
         </>
       )}
       <StyledNav itemSize={itemSize}>
-        <StyledBrand>{brand}</StyledBrand>
+        <StyledBrand>
+          <Link to="/">{brand}</Link>
+        </StyledBrand>
         {hasSearchBar && (
           <NavItem
             icon="https://image.flaticon.com/icons/svg/751/751463.svg"
