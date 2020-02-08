@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import Button from '../Button'
 
 const StyledNav = styled.nav`
+  height: 70px;
   z-index: 997;
   width: 100%;
   display: flex;
@@ -12,7 +13,6 @@ const StyledNav = styled.nav`
   background: ${({ theme }) =>
     `linear-gradient(to right, ${theme.colors.primary}, ${theme.colors.secondary})`};
   color: white;
-  height: 70px;
   padding: 0 5%;
 
   & > a {
@@ -63,6 +63,7 @@ const StyledItem = styled.div`
 `
 
 const StyledBrand = styled.div`
+  font-weight: 600;
   position: absolute;
   left: 5%;
   font-size: 2em;
@@ -85,7 +86,7 @@ const StyledSearchBar = styled.input`
 `
 
 const StyledCloseBar = styled.span`
-  position: absolute;
+  position: fixed;
   cursor: pointer;
   font-size: 1.5em;
   z-index: 999;
@@ -96,7 +97,7 @@ const StyledCloseBar = styled.span`
 const StyledSearchButton = styled(Button)`
   background: ${({ theme }) =>
     `linear-gradient(to right, ${theme.colors.primary}, ${theme.colors.secondary})`};
-  position: absolute;
+  position: fixed;
   z-index: 999;
   width: 100%;
   top: 70px;
