@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import './index.css'
 
 export const StyledCard = styled.div`
   width: 350px;
@@ -17,6 +16,10 @@ export const StyledCard = styled.div`
 
   &:hover {
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+
+    .card-info {
+      transform: translateY(0%);
+    }
   }
 `
 
