@@ -7,7 +7,7 @@ export const StyledWrapper = styled.div`
   opacity: ${props => props.theme.opacities.soft};
   box-shadow: ${props => props.theme.shadows.box.soft};
   border: solid silver 1px;
-  height: 300px;
+  height: 280px;
   position: relative;
 
   &:hover {
@@ -15,6 +15,7 @@ export const StyledWrapper = styled.div`
     box-shadow: ${props => props.theme.shadows.box.medium};
   }
 `
+
 export const StyledBanner = styled.img`
   width: 100%;
 `
@@ -23,34 +24,11 @@ export const StyledContent = styled.div`
   padding: 10px;
 `
 
-export const StyledTitle = styled.div`
-  font-weight: ${props => props.theme.tipographies.weight.bold};
-  font-size: ${props => `${props.theme.tipographies.size.md}px`};
-`
-
-export const StyledDescription = styled.div``
-
-export const StyledAuthor = styled.div`
-  font-size: ${props => `${props.theme.tipographies.size.xs}px`};
-`
-
-export const StyledFooter = styled.div`
-  position: absolute;
-  bottom: 0;
-  left: 10px;
-`
-
-function Card({ title, description, author, banner }) {
+function Card({ banner, children }) {
   return (
     <StyledWrapper>
       <StyledBanner src={banner} />
-      <StyledContent>
-        <StyledTitle>{title}</StyledTitle>
-      </StyledContent>
-      <StyledFooter>
-        <StyledDescription>{description}</StyledDescription>
-        <StyledAuthor>{author}</StyledAuthor>
-      </StyledFooter>
+      <StyledContent>{children}</StyledContent>
     </StyledWrapper>
   )
 }

@@ -11,7 +11,8 @@
     "build-storybook": "build-storybook -s public",
     "build": "BABEL_ENV=production babel src -d dist",
     "prepublish": "yarn build",
-    "postpublish": "rm -rf dist"
+    "remove:dist": "rm -rf dist",
+    "postpublish": "yarn remove:dist"
   },
   "eslintConfig": {
     "extends": "react-app"
