@@ -1,0 +1,3 @@
+.card:hover .card-info {
+  transform: translateY(0%);
+}

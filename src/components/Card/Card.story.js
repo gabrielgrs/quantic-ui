@@ -17,18 +17,16 @@ export const Base = () => {
     <Row>
       <Column size={3}>
         <Card
-          title={cardInfo.title + cardInfo.title}
           banner={cardInfo.url}
-          category={cardInfo.category}
-          author={cardInfo.author}
+          title={cardInfo.title + cardInfo.title}
+          description={cardInfo.category}
         />
       </Column>
       <Column size={3}>
         <Card
-          title={cardInfo.title}
           banner={cardInfo.url}
-          category={cardInfo.category}
-          author={cardInfo.author}
+          title={cardInfo.title}
+          description={cardInfo.category}
         />
       </Column>
     </Row>
