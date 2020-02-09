@@ -41,6 +41,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.8.4",
+    "babel-preset-react-app": "^9.1.1",
     "polished": "^3.4.2",
     "react": "^16.12.0",
     "react-datepicker": "^2.11.0",
@@ -62,6 +63,7 @@
     "@storybook/preset-create-react-app": "^1.5.2",
     "@storybook/react": "^5.3.9",
     "auto": "^9.4.1",
-    "husky": "^4.2.1"
+    "husky": "^4.2.1",
+    "quantic-ui": "^0.1.6"
   }
 }
