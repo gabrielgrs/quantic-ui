@@ -12343,6 +12343,23 @@ qs@~6.5.2:
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
   integrity sha512-N5ZAX4/LxJmF+7wN74pUD6qAh9/wnvdQcjq9TZjevvXzSUo7bfmw91saqMjzGS2xq91/odN2dW/WOl7qQHNDGA==
 
+quantic-ui@^0.1.6:
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/quantic-ui/-/quantic-ui-0.1.6.tgz#5555475ede04440b2b8740f5bf43f6649f38f0ba"
+  integrity sha512-Rv6D8xOtHIQCzzpTYa92q2yns4VNE2iy8c0HqIVRO8fcYoniuED/xnJ5poSfagoepnn8y8JDWJpXdc69fTtTCw==
+  dependencies:
+    "@babel/runtime" "^7.8.4"
+    polished "^3.4.2"
+    react "^16.12.0"
+    react-datepicker "^2.11.0"
+    react-dom "^16.12.0"
+    react-input-mask "^2.0.4"
+    react-responsive-carousel "^3.1.51"
+    react-router-dom "^5.1.2"
+    react-scripts "3.3.0"
+    react-select "^3.0.8"
+    styled-components "^5.0.0"
+
 query-string@^4.1.0:
   version "4.3.4"
   resolved "https://registry.yarnpkg.com/query-string/-/query-string-4.3.4.tgz#bbb693b9ca915c232515b228b1a02b609043dbeb"
