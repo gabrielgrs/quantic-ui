@@ -12,7 +12,8 @@
     "build": "BABEL_ENV=production babel src -d dist",
     "prepublish": "yarn build",
     "remove:dist": "rm -rf dist",
-    "postpublish": "yarn remove:dist"
+    "postpublish": "yarn remove:dist",
+    "deploy:automatic": "git checkout develop && git add . && git commit -m 'automatic deploy' && git push && git checkout master && git merge develop && git push && git checkout develop"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -38,12 +39,6 @@
     "hooks": {
       "pre-commit": "rm -rf dist"
     }
-  },
-  "nohoist": [
-    "**/babel-preset-react-app/@babel/runtime"
-  ],
-  "resolutions": {
-    "**/@babel/runtime": "7.5.0"
   },
   "dependencies": {
     "@babel/cli": "^7.8.3",
