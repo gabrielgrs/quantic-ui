@@ -64,6 +64,7 @@
     "@storybook/preset-create-react-app": "^1.5.2",
     "@storybook/react": "^5.3.9",
     "auto": "^9.4.1",
-    "husky": "^4.2.1"
+    "husky": "^4.2.1",
+    "quantic-ui": "^0.1.13"
   }
 }
