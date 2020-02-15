@@ -14,6 +14,7 @@ const StyledNav = styled.nav`
     `linear-gradient(to right, ${theme.colors.primary}, ${theme.colors.secondary})`};
   color: white;
   padding: 0 5%;
+  box-shadow: ${({ theme }) => theme.shadows.box.medium};
 
   & > a {
     width: 110px;
