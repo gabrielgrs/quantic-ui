@@ -43,7 +43,8 @@ const shadows = {
   box: {
     soft: '0px 0px 2px 0px rgba(0,0,0,0.75)',
     medium: '0px 0px 4px 0px rgba(0,0,0,0.75)',
-    hard: '0px 0px 7px 0px rgba(0,0,0,0.75)'
+    hard: '0px 0px 7px 0px rgba(0,0,0,0.75)',
+    navbar: '0px 5px 10px 0px rgba(0, 0, 0, 0.4);'
   }
 }
 

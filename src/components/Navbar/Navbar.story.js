@@ -15,6 +15,7 @@ export const Base = () => {
       <Navbar.NavItem
         icon="https://image.flaticon.com/icons/svg/2539/2539079.svg"
         alt="Cursos"
+        path="cursos"
       >
         Cursos
       </Navbar.NavItem>
@@ -22,13 +23,23 @@ export const Base = () => {
       <Navbar.NavItem
         icon="https://image.flaticon.com/icons/svg/2539/2539079.svg"
         alt="Social"
+        subItems={[
+          {
+            path: '/',
+            text: 'Item 01'
+          },
+          {
+            path: '/',
+            text: 'Item 02'
+          }
+        ]}
       >
         Social
       </Navbar.NavItem>
-
       <Navbar.NavItem
         icon="https://image.flaticon.com/icons/svg/2539/2539079.svg"
         alt="Ajuda"
+        path="ajuda"
       >
         Ajuda
       </Navbar.NavItem>
@@ -36,6 +47,7 @@ export const Base = () => {
       <Navbar.NavItem
         icon="https://image.flaticon.com/icons/svg/2539/2539079.svg"
         alt="Conta"
+        path="conta"
       >
         Conta
       </Navbar.NavItem>

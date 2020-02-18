@@ -5,17 +5,17 @@ import Button from '../Button'
 
 const StyledNav = styled.nav`
   height: 70px;
-  z-index: 997;
+  z-index: 9997;
   width: 100%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   background: ${({ theme }) => theme.colors.white};
   padding: 0 5%;
-  box-shadow: ${({ theme }) => theme.shadows.box.hard};
+  box-shadow: ${({ theme }) => theme.shadows.box.navbar};
 
   & > a {
-    width: 110px;
+    padding: 0 20px;
   }
 
   @media screen and (max-width: 700px) {
@@ -74,7 +74,7 @@ const StyledBrand = styled.div`
 `
 
 const StyledSearchBar = styled.input`
-  z-index: 998;
+  z-index: 9998;
   position: fixed;
   border: none;
   left: 0;
@@ -89,15 +89,16 @@ const StyledCloseBar = styled.span`
   position: fixed;
   cursor: pointer;
   font-size: 1.5em;
-  z-index: 999;
+  z-index: 9999;
   right: 20px;
   top: 20px;
 `
 
 const StyledSearchButton = styled(Button)`
   background: ${({ theme }) => theme.colors.primary};
+  box-shadow: ${({ theme }) => theme.shadows.box.navbar};
   position: fixed;
-  z-index: 999;
+  z-index: 9999;
   width: 100%;
   top: 70px;
 `
@@ -110,12 +111,14 @@ const animatedSubnav = keyframes`
 
   to {
     opacity: 1;
-    height: 23px;
+    height: 100%;
   }
 `
 
 const StyledSubnav = styled.div`
+  z-index: 9996;
   background: ${({ theme }) => theme.colors.primary};
+  width: 100%;
   cursor: pointer;
   color: ${({ theme }) => theme.colors.white};
   display: flex;
@@ -133,11 +136,23 @@ const StyledSubnav = styled.div`
       opacity: 0.8;
     }
   }
+
+  @media screen and (max-width: 700px) {
+    flex-direction: column;
+    height: 100%;
+    position: fixed;
+    top: 0;
+
+    & > a {
+      font-size: 2em;
+      padding: 10px;
+    }
+  }
 `
 
 function NavItem({ icon, path, alt, onClick, subItems, children }) {
   return (
-    <Link to="/" onClick={onClick}>
+    <Link to={path} onClick={onClick}>
       <StyledItem>
         <img src={icon} alt={alt} />
         <span>{children}</span>
@@ -152,6 +167,8 @@ function Navbar({ children, brand, hasSearchBar, onSubmitSearch, ...props }) {
   const [subnavs, setSubnavs] = useState(undefined)
 
   const itemSize = 100 / children.length
+
+  const isMobile = window.screen.width < 701
 
   return (
     <>
@@ -200,14 +217,24 @@ function Navbar({ children, brand, hasSearchBar, onSubmitSearch, ...props }) {
             ...props,
             key: index,
             itemSize,
-            onClick: () => setSubnavs(c.props.subItems)
+            onClick: () => {
+              setSubnavs(c.props.subItems)
+            }
           })
         })}
       </StyledNav>
       {subnavs && (
         <StyledSubnav>
           {subnavs.map(s => (
-            <Link key={s.text} to={s.path}>
+            <Link
+              key={s.text}
+              to={s.path}
+              onClick={() => {
+                if (isMobile) {
+                  setSubnavs(undefined)
+                }
+              }}
+            >
               {s.text}
             </Link>
           ))}
