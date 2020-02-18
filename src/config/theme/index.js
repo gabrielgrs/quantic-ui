@@ -22,12 +22,13 @@ const tipographies = {
 }
 
 const colors = {
-  primary: '#27AAE1',
-  secondary: '#43DBA2',
+  primary: '#1890ff',
+  secondary: '#263DC2',
   grey: '#B0B0B0',
   darkGrey: '#757575',
   lightSilver: '#ECEFF1',
   white: '#FFFFFF',
+  black: '#2b2b2b',
   success: '#5ACC5A',
   warning: '#FFC247',
   danger: '#CC001B'

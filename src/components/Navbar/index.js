@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import Button from '../Button'
 
 const StyledNav = styled.nav`
@@ -10,11 +10,9 @@ const StyledNav = styled.nav`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  background: ${({ theme }) =>
-    `linear-gradient(to right, ${theme.colors.primary}, ${theme.colors.secondary})`};
-  color: white;
+  background: ${({ theme }) => theme.colors.white};
   padding: 0 5%;
-  box-shadow: ${({ theme }) => theme.shadows.box.medium};
+  box-shadow: ${({ theme }) => theme.shadows.box.hard};
 
   & > a {
     width: 110px;
@@ -36,7 +34,7 @@ const StyledItem = styled.div`
   cursor: pointer;
   text-align: center;
   opacity: 1;
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.primary};
   font-size: 20px;
 
   & > img {
@@ -64,6 +62,7 @@ const StyledItem = styled.div`
 `
 
 const StyledBrand = styled.div`
+  cursor: pointer;
   font-weight: 600;
   position: absolute;
   left: 5%;
@@ -96,17 +95,49 @@ const StyledCloseBar = styled.span`
 `
 
 const StyledSearchButton = styled(Button)`
-  background: ${({ theme }) =>
-    `linear-gradient(to right, ${theme.colors.primary}, ${theme.colors.secondary})`};
+  background: ${({ theme }) => theme.colors.primary};
   position: fixed;
   z-index: 999;
   width: 100%;
   top: 70px;
 `
 
-function NavItem({ icon, path, alt, onClick, children }) {
+const animatedSubnav = keyframes`
+  from {
+    opacity: 0;
+    height: 0px;
+  }
+
+  to {
+    opacity: 1;
+    height: 23px;
+  }
+`
+
+const StyledSubnav = styled.div`
+  background: ${({ theme }) => theme.colors.primary};
+  cursor: pointer;
+  color: ${({ theme }) => theme.colors.white};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 23px;
+
+  & > a {
+    animation: ${animatedSubnav} 0.5s ease-in;
+    font-size: 1em;
+    padding: 0 10px;
+    color: ${({ theme }) => theme.colors.white};
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+`
+
+function NavItem({ icon, path, alt, onClick, subItems, children }) {
   return (
-    <Link to={path} onClick={onClick}>
+    <Link to="/" onClick={onClick}>
       <StyledItem>
         <img src={icon} alt={alt} />
         <span>{children}</span>
@@ -118,6 +149,7 @@ function NavItem({ icon, path, alt, onClick, children }) {
 function Navbar({ children, brand, hasSearchBar, onSubmitSearch, ...props }) {
   const [searchBarIsOpen, setSearchBarIsOpen] = useState(false)
   const [searchText, setSearchText] = useState(undefined)
+  const [subnavs, setSubnavs] = useState(undefined)
 
   const itemSize = 100 / children.length
 
@@ -163,8 +195,24 @@ function Navbar({ children, brand, hasSearchBar, onSubmitSearch, ...props }) {
             Pesquisar
           </NavItem>
         )}
-        {children.map(c => React.cloneElement(c, { ...props, itemSize }))}
+        {children.map((c, index) => {
+          return React.cloneElement(c, {
+            ...props,
+            key: index,
+            itemSize,
+            onClick: () => setSubnavs(c.props.subItems)
+          })
+        })}
       </StyledNav>
+      {subnavs && (
+        <StyledSubnav>
+          {subnavs.map(s => (
+            <Link key={s.text} to={s.path}>
+              {s.text}
+            </Link>
+          ))}
+        </StyledSubnav>
+      )}
     </>
   )
 }

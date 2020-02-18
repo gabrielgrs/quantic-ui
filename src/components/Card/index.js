@@ -2,7 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 
 export const StyledCard = styled.div`
-  width: 270px;
+  margin-left: 5%;
+  width: 90%;
   height: 150px;
   border-radius: 3px;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
