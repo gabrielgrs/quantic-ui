@@ -49,9 +49,8 @@ export const StyledCardDescription = styled.p`
 export default function Card(props) {
   return (
     <StyledCard
-      style={{
-        'background-image': `url(${props.banner})`
-      }}
+      {...props}
+      style={{ 'background-image': `url(${props.banner})` }}
       className="card"
     >
       <StyledCardInfo className="card-info">

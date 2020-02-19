@@ -32,7 +32,11 @@ const getWidthByQuantity = size => {
 }
 
 export const StyledColumn = styled.div`
-  display: ${({ inline }) => (inline ? 'flex' : null)};
+  
+  /* display: ${({ justifyContent }) => (inline ? 'flex' : null)}; */
+  display: ${({ justifyContent }) => (justifyContent ? 'flex' : null)};
+  justify-content: ${({ justifyContent }) => justifyContent}
+  
   width: 96%;
 
   /* This when column is inside row  */
