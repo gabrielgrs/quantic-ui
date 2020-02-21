@@ -1,14 +1,16 @@
-import React, { Fragment } from 'react'
-import { Column } from '..'
+import React from 'react'
+import { Row, Column, Button } from '..'
 
 export default {
   title: 'Grid/Column'
 }
 
 export const Base = () => (
-  <Fragment>
+  <Row>
     <Column size={4}>Column with size 4</Column>
     <Column size={6}>Column with size 6</Column>
-    <Column size={2}>Column with size 2</Column>
-  </Fragment>
+    <Column size={2}>
+      <Button>Teste</Button>
+    </Column>
+  </Row>
 )

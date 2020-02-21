@@ -3337,7 +3337,7 @@ babel-plugin-react-docgen@^4.0.0:
     react-docgen "^5.0.0"
     recast "^0.14.7"
 
-"babel-plugin-styled-components@>= 1":
+"babel-plugin-styled-components@>= 1", babel-plugin-styled-components@^1.10.7:
   version "1.10.7"
   resolved "https://registry.yarnpkg.com/babel-plugin-styled-components/-/babel-plugin-styled-components-1.10.7.tgz#3494e77914e9989b33cc2d7b3b29527a949d635c"
   integrity sha512-MBMHGcIA22996n9hZRf/UJLVVgkEOITuR2SvjHLb5dSTUyR4ZRGn+ngITapes36FI3WLxZHfRhkA1ffHxihOrg==
@@ -11332,10 +11332,17 @@ qs@~6.5.2:
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
   integrity sha512-N5ZAX4/LxJmF+7wN74pUD6qAh9/wnvdQcjq9TZjevvXzSUo7bfmw91saqMjzGS2xq91/odN2dW/WOl7qQHNDGA==
 
+<<<<<<< HEAD
 quantic-ui@^0.1.13:
   version "0.1.13"
   resolved "https://registry.yarnpkg.com/quantic-ui/-/quantic-ui-0.1.13.tgz#84145a442fbe39c0d6d89efd599de7f09d2b7672"
   integrity sha512-St9e0b1Zs8+m2j1mQifj9UD/tU+7+LerjR9utIgS2XLCbkcEnxO0praqokaprr2Tr6d47vSxf45zF+kwcS6wuw==
+=======
+quantic-ui@^0.1.16:
+  version "0.1.16"
+  resolved "https://registry.yarnpkg.com/quantic-ui/-/quantic-ui-0.1.16.tgz#60c668591bc9afbcf51a3a0cc3e0a0a01cfaf92d"
+  integrity sha512-VxRMnIqOy3ojA0T5/4QOfB33JUlVIM/EsOWiTbB/4HyIXOjq8mAREzziU3z/qWxRNex8kahdUu4PV4FUKwwRxA==
+>>>>>>> develop
   dependencies:
     "@babel/cli" "^7.8.4"
     "@babel/preset-react" "^7.8.3"

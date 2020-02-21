@@ -2,7 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 
 export const StyledCard = styled.div`
-  width: 270px;
+  margin-left: 5%;
+  width: 90%;
   height: 150px;
   border-radius: 3px;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -48,9 +49,8 @@ export const StyledCardDescription = styled.p`
 export default function Card(props) {
   return (
     <StyledCard
-      style={{
-        'background-image': `url(${props.banner})`
-      }}
+      {...props}
+      style={{ 'background-image': `url(${props.banner})` }}
       className="card"
     >
       <StyledCardInfo className="card-info">
