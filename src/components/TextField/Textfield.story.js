@@ -1,19 +1,18 @@
-import React, { Fragment } from 'react'
-import { TextField } from '..'
+import React from 'react'
+import Textfield from './index'
 
 export default {
-  title: 'Components/TextField',
-  component: TextField
+  title: 'Components/Textfield',
+  parameters: { jest: ['Textfield.spec.js'] },
 }
 
-export const Base = () => (
-  <Fragment>
-    <TextField value={''} onChange={() => {}} fullWidth label="With Label" />
-    <TextField
-      value={''}
-      onChange={() => {}}
-      fullWidth
-      placeholder="Placeholder"
-    />
-  </Fragment>
-)
+const Template = (args) => {
+  return <Textfield {...args} />
+}
+
+export const Default = Template.bind({})
+
+Default.args = {
+  value: 'Text',
+  fullWidth: true,
+}

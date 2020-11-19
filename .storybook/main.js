@@ -1,9 +1,13 @@
 module.exports = {
-  stories: ['../src/**/*.story.js', '../src/**/*.story.mdx'],
+  stories: ['./docs/introduction.story.mdx', '../src/**/*.story.@(mdx|js)'],
   addons: [
     '@storybook/preset-create-react-app',
     '@storybook/addon-actions',
-    '@storybook/addon-links'
+    '@storybook/addon-links',
+    '@storybook/addon-docs',
+    '@storybook/addon-controls',
+    '@storybook/addon-essentials',
+    '@storybook/addon-a11y',
+    '@storybook/addon-jest',
   ],
-  presets: ['@storybook/addon-docs/react/preset']
 }

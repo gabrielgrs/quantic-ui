@@ -1,15 +1,16 @@
-import React, { Fragment } from 'react'
-import { Button } from '..'
+import React from 'react'
+import Button from './index'
 
 export default {
-  title: 'Components/Button'
+  title: 'Components/Button',
+  parameters: { jest: ['Button.spec.js'] },
 }
 
-export const Base = () => (
-  <Fragment>
-    <Button onClick={() => console.log('oi')}> Button </Button>
-    <Button isLoading> Loading </Button>
-    <Button isDisabled> Disabled </Button>
-    <Button color="danger">Danger Color</Button>
-  </Fragment>
-)
+const Template = (args) => <Button {...args} />
+
+export const Default = Template.bind({})
+
+Default.args = {
+  children: 'Button',
+  primary: true,
+}

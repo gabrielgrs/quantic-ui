@@ -1,8 +1,17 @@
 import styled from 'styled-components'
 
+export const StyledWrapper = styled.div`
+  display: flex;
+
+  * {
+    transition: unset;
+  }
+`
+
 export const StyledCheckboxContainer = styled.div`
   display: inline-block;
   vertical-align: middle;
+  padding: 0 10px;
 `
 
 export const StyledIcon = styled.svg`
@@ -26,17 +35,16 @@ export const StyledHiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
 
 export const StyledCheckbox = styled.div`
   display: inline-block;
-  width: 18px;
-  height: 18px;
-  background: ${props => props.theme.colors.primary};
-  border-radius: ${props => `${props.theme.border.radius}px`};
-  transition: all 150ms;
+  width: 24px;
+  height: 24px;
+  background: ${({ theme }) => theme.colors.primary};
+  border-radius: ${({ theme }) => theme.borders.radius};
 
   ${StyledHiddenCheckbox}:focus + & {
     box-shadow: 0 0 0 3px pink;
   }
 
   ${StyledIcon} {
-    visibility: ${props => (props.checked ? 'visible' : 'hidden')};
+    visibility: ${({ checked }) => (checked ? 'visible' : 'hidden')};
   }
 `

@@ -4,27 +4,26 @@ import Datepicker from 'react-datepicker'
 
 export const StyledDatepicker = styled(Datepicker)`
   display: block;
-  padding: 0.5em 5px;
+  padding: 0.3em 1.3em;
+  height: 44px;
   font-size: 1rem;
   line-height: 1.5;
-  color: #564f64;
-  background-color: #ffffff;
+  color: ${({ theme }) => theme.colors.black};
+  background: ${({ theme }) => theme.colors.silverSkyLight};
+  border: ${({ theme, error }) => `2px ${error ? theme.colors.danger : theme.colors.silver} solid`};
   background-image: none;
   background-clip: padding-box;
-  border: 2px solid #dbd3e9;
-  border-radius: ${props => `${props.theme.border.radius}px`};
-  -webkit-transition: border-color 0.15s ease-in-out,
-    -webkit-box-shadow 0.15s ease-in-out;
-  transition: border-color 0.15s ease-in-out,
-    -webkit-box-shadow 0.15s ease-in-out;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
-    -webkit-box-shadow 0.15s ease-in-out;
+  border-radius: ${({ theme }) => theme.borders.radius};
   width: ${({ fullWidth }) => (fullWidth ? '100%' : 'inherit')};
   box-sizing: border-box;
+  opacity: ${({ disabled }) => (disabled ? 0.7 : 1)};
+
+  transition: ${({ theme }) => theme.transitions('all')};
 
   &:focus {
-    border: 2px solid ${({ theme }) => theme.colors.primary};
+    border: 2px solid ${({ theme, error }) => (error ? theme.colors.danger : theme.colors.primary)};
+    box-shadow: ${({ theme }) => theme.shadows.box.field};
     outline: 0;
+    background: ${({ theme }) => theme.colors.white};
   }
 `

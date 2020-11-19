@@ -8,15 +8,105 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public",
+    "dev": "react-scripts start",
     "build": "BABEL_ENV=production babel src -d dist",
+    "lint": "eslint src --max-warnings=0",
+    "test": "jest",
+    "test:output": "jest --json --outputFile=./src/__tests__/addon-results.json",
+    "start": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public",
+    "generate:readme": "npx readme-md-generator",
     "prepublish": "yarn build",
     "remove:dist": "rm -rf dist",
     "postpublish": "yarn remove:dist"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && rm -rf dist",
+      "post-commit": "git update-index --again"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "yarn lint --fix",
+      "yarn test --bail --findRelatedTests"
+    ]
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.8.4",
+    "@emotion/core": "^11.0.0",
+    "@storybook/addon-a11y": "^6.0.28",
+    "@storybook/addon-actions": "^6.0.28",
+    "@storybook/addon-controls": "^6.0.28",
+    "@storybook/addon-docs": "^6.0.28",
+    "@storybook/addon-essentials": "^6.0.28",
+    "@storybook/addon-jest": "^6.0.28",
+    "@storybook/addon-links": "^6.0.28",
+    "@storybook/addons": "^6.0.28",
+    "@storybook/preset-create-react-app": "^3.1.4",
+    "@storybook/react": "^6.0.28",
+    "@storybook/theming": "^6.0.28",
+    "@styled-icons/bootstrap": "^10.15.1",
+    "@styled-icons/boxicons-regular": "^10.18.0",
+    "@styled-icons/fa-solid": "^10.22.0",
+    "@styled-icons/ionicons-outline": "^10.18.0",
+    "@styled-icons/material": "^10.18.0",
+    "@testing-library/jest-dom": "^5.11.0",
+    "@testing-library/react": "^11.2.1",
+    "@testing-library/user-event": "^12.0.11",
+    "@tippyjs/react": "^4.2.0",
+    "axios": "^0.21.0",
+    "date-fns": "^2.15.0",
+    "framer-motion": "^2.7.5",
+    "jest-styled-components": "^7.0.3",
+    "polished": "^4.0.3",
+    "prop-types": "^15.7.2",
+    "rc-slider": "^9.3.1",
+    "react": "^17.0.1",
+    "react-countdown-circle-timer": "^2.3.6",
+    "react-credit-cards": "^0.8.3",
+    "react-datepicker": "^3.1.3",
+    "react-dom": "^17.0.1",
+    "react-hook-form": "^6.0.8",
+    "react-icons": "^3.10.0",
+    "react-input-mask": "^2.0.4",
+    "react-loadable": "^5.5.0",
+    "react-loading-skeleton": "^2.1.1",
+    "react-multi-carousel": "^2.5.5",
+    "react-particles-js": "^3.3.0",
+    "react-player": "^2.5.0",
+    "react-router-dom": "^5.1.2",
+    "react-select": "^3.1.0",
+    "react-spinners": "^0.9.0",
+    "react-spring": "^8.0.27",
+    "react-toast-notifications": "^2.4.0",
+    "styled-components": "^5.1.1",
+    "styled-icons": "^10.17.0",
+    "swr": "^0.3.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "babel-jest": "^26.1.0",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-styled-components": "^1.11.1",
+    "eslint": "^7.5.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.20.3",
+    "eslint-plugin-react-hooks": "^4.0.8",
+    "fullscreen": "^1.1.1",
+    "husky": "^4.2.5",
+    "jest": "^26.1.0",
+    "levenary": "^1.1.1",
+    "lint-staged": "^10.2.11",
+    "prettier": "^2.0.5",
+    "react-horizontal-scrolling-menu": "^0.7.5",
+    "react-scripts": "^4.0.0"
   },
   "browserslist": {
     "production": [
@@ -29,45 +119,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "babel": {
-    "presets": [
-      "@babel/preset-react"
-    ],
-    "plugins": [
-      "babel-plugin-styled-components"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "rm -rf dist"
-    }
-  },
-  "dependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/preset-react": "^7.8.3",
-    "@babel/runtime": "^7.8.4",
-    "polished": "^3.4.2",
-    "react": "^16.12.0",
-    "react-datepicker": "^2.11.0",
-    "react-dom": "^16.12.0",
-    "react-input-mask": "^2.0.4",
-    "react-responsive-carousel": "^3.1.51",
-    "react-router-dom": "^5.1.2",
-    "react-scripts": "^3.3.1",
-    "react-select": "^3.0.8",
-    "styled-components": "^5.0.0"
-  },
-  "devDependencies": {
-    "@storybook/addon-actions": "^5.3.9",
-    "@storybook/addon-docs": "^5.3.9",
-    "@storybook/addon-links": "^5.3.9",
-    "@storybook/addon-storysource": "^5.3.9",
-    "@storybook/addons": "^5.3.9",
-    "@storybook/preset-create-react-app": "^1.5.2",
-    "@storybook/react": "^5.3.9",
-    "auto": "^9.4.1",
-    "babel-plugin-styled-components": "^1.10.7",
-    "husky": "^4.2.1"
   }
 }

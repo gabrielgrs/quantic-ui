@@ -2,21 +2,27 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { StyledLabel } from './styles'
 
-function Textfield(props) {
+function Label(props) {
   const { children, isRequired } = props
+
+  if (!children) return null
+
   return (
     <StyledLabel>
-      {children} {isRequired ? '*' : ''}
+      {children}
+      {isRequired ? '*' : ''}
     </StyledLabel>
   )
 }
 
-Textfield.propTypes = {
-  isRequired: PropTypes.bool
+Label.propTypes = {
+  children: PropTypes.oneOfType([PropTypes.node, PropTypes.array]),
+  isRequired: PropTypes.bool,
 }
 
-Textfield.defaultProps = {
-  isRequired: false
+Label.defaultProps = {
+  isRequired: false,
+  children: undefined,
 }
 
-export default Textfield
+export default Label

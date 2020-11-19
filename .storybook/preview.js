@@ -1,21 +1,21 @@
-import React from 'react'
-import { ThemeProvider } from 'styled-components'
-import { addDecorator, addParameters } from '@storybook/react'
-import { BrowserRouter } from 'react-router-dom'
-import theme from '../src/config/theme'
-import GlobalStyles from '../src/GlobalStyles'
+import { addParameters, addDecorator } from '@storybook/react'
+import { withTests } from '@storybook/addon-jest'
+import results from '../src/__tests__/addon-results.json'
+import withWrapper from './withWrapper'
+import StorybookTheme from './theme'
 
 addParameters({
   options: {
-    showRoots: true
-  }
+    theme: StorybookTheme,
+  },
+  dependencies: {
+    withStoriesOnly: true,
+    hideEmpty: true,
+  },
+  html: {
+    preventForcedRender: true,
+  },
 })
 
-addDecorator(story => (
-  <ThemeProvider theme={theme}>
-    <BrowserRouter>
-      <GlobalStyles />
-      {story()}
-    </BrowserRouter>
-  </ThemeProvider>
-))
+addDecorator(withTests({ results }))
+addDecorator(withWrapper)

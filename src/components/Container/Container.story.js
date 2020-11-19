@@ -1,8 +1,13 @@
 import React from 'react'
-import { Container } from '..'
+import Container from './index'
 
 export default {
-  title: 'Grid/Container'
+  title: 'Components/Container',
+  parameters: { jest: ['Container.spec.js'] },
 }
 
-export const Base = () => <Container>Container</Container>
+const Template = (args) => <Container {...args}>Container</Container>
+
+export const Default = Template.bind({})
+
+Default.args = {}

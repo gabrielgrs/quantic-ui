@@ -1,41 +1,60 @@
 import React from 'react'
+import * as reactIcons from 'react-icons/ai'
 import PropTypes from 'prop-types'
 import { StyledButton } from './styles'
 
 function Button(props) {
-  const { children } = props
+  const { children, onClick, loadingText, leftIcon, rightIcon, ...rest } = props
+
+  const LeftIcon = reactIcons[leftIcon]
+  const RightIcon = reactIcons[rightIcon]
 
   return (
     <StyledButton
-      onClick={props.isDisabled || props.isLoading ? null : props.onClick}
-      {...props}
+      {...rest}
+      hasIcon={leftIcon || rightIcon}
+      onClick={!rest.disabled && !rest.loading ? onClick : undefined}
     >
-      {props.isLoading ? 'Loading' : children}
+      {rest.loading ? (
+        loadingText
+      ) : (
+        <div>
+          {leftIcon && <LeftIcon id="leftIcon" size={20} />}
+          {children}
+          {rightIcon && <RightIcon id="rightIcon" size={20} />}
+        </div>
+      )}
     </StyledButton>
   )
 }
 
 Button.propTypes = {
-  isLoading: PropTypes.bool,
-  isDisabled: PropTypes.bool,
+  children: PropTypes.string.isRequired,
+  loading: PropTypes.bool,
+  disabled: PropTypes.bool,
+  loadingText: PropTypes.string,
   size: PropTypes.oneOf(['default', 'small']),
-  color: PropTypes.oneOf([
-    'primary',
-    'secondary',
-    'success',
-    'warning',
-    'danger',
-    'white'
-  ]),
-  onClick: PropTypes.func
+  primary: PropTypes.bool,
+  secondary: PropTypes.bool,
+  gradient: PropTypes.bool,
+  info: PropTypes.bool,
+  onClick: PropTypes.func,
+  leftIcon: PropTypes.string,
+  rightIcon: PropTypes.string,
 }
 
 Button.defaultProps = {
-  isLoading: false,
-  isDisabled: false,
+  loading: false,
+  disabled: false,
+  loadingText: 'Carregando',
   size: 'default',
-  color: 'primary',
-  onClick: () => {}
+  primary: false,
+  secondary: false,
+  gradient: false,
+  info: false,
+  onClick: () => {},
+  leftIcon: undefined,
+  rightIcon: undefined,
 }
 
 export default Button

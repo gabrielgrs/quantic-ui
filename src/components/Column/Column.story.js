@@ -1,16 +1,22 @@
 import React from 'react'
-import { Row, Column, Button } from '..'
+import Column from './index'
+import Row from '../Row'
 
 export default {
-  title: 'Grid/Column'
+  title: 'Components/Column',
+  parameters: { jest: ['Checkbox.spec.js'] },
 }
 
-export const Base = () => (
+const Template = () => (
   <Row>
     <Column size={4}>Column with size 4</Column>
     <Column size={6}>Column with size 6</Column>
-    <Column size={2}>
-      <Button>Teste</Button>
-    </Column>
+    <Column size={2}>Teste</Column>
   </Row>
 )
+
+export const Default = Template.bind({})
+
+Default.args = {
+  checked: true,
+}

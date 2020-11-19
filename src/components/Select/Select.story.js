@@ -1,20 +1,16 @@
-import React, { Fragment } from 'react'
-import { Select } from '..'
+import React from 'react'
+import Select from './index'
 
 export default {
   title: 'Components/Select',
-  component: Select
+  parameters: { jest: ['Select.spec.js'] },
 }
 
-export const Base = () => {
-  const options = [
-    { value: 1, label: 'teste 1' },
-    { value: 2, label: 'teste 2' }
-  ]
-  return (
-    <Fragment>
-      <Select options={options} label="With label" />
-      <Select options={options} />
-    </Fragment>
-  )
+const Template = (args) => <Select {...args} />
+
+export const Default = Template.bind({})
+
+Default.args = {
+  options: [{ id: 'first', label: 'First' }],
+  label: 'Label',
 }

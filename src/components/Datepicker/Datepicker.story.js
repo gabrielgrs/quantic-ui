@@ -1,8 +1,13 @@
 import React from 'react'
-import { Datepicker } from '..'
+import Datepicker from './index'
 
 export default {
-  title: 'Components/Datepicker'
+  title: 'Components/Container',
+  parameters: { jest: ['Container.spec.js'] },
 }
 
-export const Base = () => <Datepicker value={new Date()} />
+const Template = (args) => <Datepicker {...args} />
+
+export const Default = Template.bind({})
+
+Default.args = {}

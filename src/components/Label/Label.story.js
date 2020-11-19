@@ -1,9 +1,15 @@
 import React from 'react'
-import { Label } from '..'
+import Label from './index'
 
 export default {
   title: 'Components/Label',
-  component: Label
+  parameters: { jest: ['Label.spec.js'] },
 }
 
-export const Base = () => <Label> Label </Label>
+const Template = (args) => <Label {...args} />
+
+export const Default = Template.bind({})
+
+Default.args = {
+  children: 'Label Text',
+}

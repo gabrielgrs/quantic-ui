@@ -1,14 +1,15 @@
-import React, { Fragment } from 'react'
-import { Row } from '..'
+import React from 'react'
+import Row from './index'
 
 export default {
-  title: 'Grid/Row'
+  title: 'Components/Row',
+  parameters: { jest: ['Row.spec.js'] },
 }
 
-export const Base = () => (
-  <Fragment>
-    <Row>First Row</Row>
-    <Row>Second Row</Row>
-    <Row>Third Row</Row>
-  </Fragment>
-)
+const Template = (args) => <Row {...args} />
+
+export const Default = Template.bind({})
+
+Default.args = {
+  children: 'Row content',
+}

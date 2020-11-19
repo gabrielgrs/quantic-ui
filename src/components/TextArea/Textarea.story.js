@@ -1,14 +1,19 @@
-import React, { Fragment } from 'react'
-import { TextArea } from '..'
+import React from 'react'
+import Textarea from './index'
 
 export default {
-  title: 'Components/TextArea',
-  component: TextArea
+  title: 'Components/Textarea',
+  parameters: { jest: ['Textarea.spec.js'] },
 }
 
-export const Base = () => (
-  <Fragment>
-    <TextArea fullWidth rows={5} label="teste" />
-    <TextArea />
-  </Fragment>
-)
+const Template = (args) => {
+  return <Textarea {...args} />
+}
+
+export const Default = Template.bind({})
+
+Default.args = {
+  value: 'Text',
+  rows: 4,
+  fullWidth: true,
+}

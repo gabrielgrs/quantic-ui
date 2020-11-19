@@ -1,14 +1,15 @@
-import React, { Fragment } from 'react'
-import { Checkbox } from '..'
+import React from 'react'
+import Checkbox from './index'
 
 export default {
   title: 'Components/Checkbox',
-  component: Checkbox
+  parameters: { jest: ['Checkbox.spec.js'] },
 }
 
-export const Base = () => (
-  <Fragment>
-    <Checkbox label="Checkbox" />
-    <Checkbox label="Checkbox" checked />
-  </Fragment>
-)
+const Template = (args) => <Checkbox {...args} />
+
+export const Default = Template.bind({})
+
+Default.args = {
+  checked: true,
+}

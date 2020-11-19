@@ -1,20 +1,20 @@
 import React from 'react'
-import { Carousel } from '..'
+import Carousel from './index'
 
 export default {
-  title: 'Components/Carousel'
+  title: 'Components/Carousel',
+  parameters: { jest: ['Carousel.spec.js'] },
 }
 
-const items = [
-  {
-    img:
-      'https://app.lit.com.br/api/images/home/carousel/vitrine-02_comp-e-contr-intern_01.png',
-    alt: 'course'
-  },
-  {
-    img: 'https://app.lit.com.br/api/images/home/carousel/imagem2.jpg',
-    alt: 'coursed'
-  }
-]
+const Template = (args) => (
+  <Carousel {...args}>
+    <img src="https://app.lit.com.br/api/images/home/carousel/imagem2.jpg" alt="first carousel" />
+    <img src="https://app.lit.com.br/api/images/home/carousel/imagem2.jpg" alt="first carousel" />
+  </Carousel>
+)
 
-export const Base = () => <Carousel items={items} showIndicators={false} />
+export const Default = Template.bind({})
+
+Default.args = {
+  showIndicators: false,
+}
