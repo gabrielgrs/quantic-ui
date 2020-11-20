@@ -23,8 +23,8 @@ export default (config = {}) => ({
     ...defaultTheme.tipographies,
     ...config.tipographies,
   },
-  mediaSizes: {
-    ...defaultTheme.mediaSizes,
-    ...config.mediaSizes,
+  breakPoints: {
+    ...defaultTheme.breakPoints,
+    ...config.breakPoints,
   },
 })

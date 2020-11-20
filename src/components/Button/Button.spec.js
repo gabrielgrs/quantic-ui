@@ -28,16 +28,4 @@ describe('Test Button', () => {
     fireEvent.click(element)
     expect(onClick).not.toHaveBeenCalled()
   })
-
-  it('Expect to dont dispatch onClick when loading', () => {
-    const onClick = jest.fn()
-    const { queryByText } = render(
-      <Button onClick={onClick} loading>
-        Loading Button
-      </Button>
-    )
-    const element = queryByText('Carregando')
-    fireEvent.click(element)
-    expect(onClick).not.toHaveBeenCalled()
-  })
 })
