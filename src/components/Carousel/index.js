@@ -4,25 +4,23 @@ import { useTransition, animated } from 'react-spring'
 
 import { StyledWrapper } from './styles'
 
-function Carousel({ children, timeout, ...rest }) {
-  const [activeIndex, setActiveIndex] = useState(0)
-  const [previousActiveIndex, setPrevious] = useState(activeIndex)
+function Carousel({ children, timeout, index, onChangeIndex, ...rest }) {
+  const [previousActiveIndex, setPrevious] = useState(index)
 
   const autoAdvanceItem = useCallback(
     (currentIndex) => {
       setTimeout(() => {
         const isLastChild = 1 + currentIndex === children.length
-        if (isLastChild) return setActiveIndex(0)
-        return setActiveIndex((prev) => prev + 1)
+        return isLastChild ? onChangeIndex(0) : onChangeIndex(index + 1)
       }, timeout)
     },
     [timeout, children.length]
   )
 
   useEffect(() => {
-    setPrevious(activeIndex)
-    autoAdvanceItem(activeIndex)
-  }, [activeIndex, autoAdvanceItem])
+    setPrevious(index)
+    autoAdvanceItem(index)
+  }, [index, autoAdvanceItem])
 
   const transitionType = {
     backwards: {
@@ -40,9 +38,9 @@ function Carousel({ children, timeout, ...rest }) {
   }
 
   const transitions = useTransition(
-    activeIndex,
+    index,
     (p) => p,
-    activeIndex < previousActiveIndex ? transitionType.forwards : transitionType.backwards
+    index < previousActiveIndex ? transitionType.forwards : transitionType.backwards
   )
 
   return (
@@ -52,15 +50,6 @@ function Carousel({ children, timeout, ...rest }) {
           {children[item]}
         </animated.div>
       ))}
-      {/* <StyledMarksWrapper>
-        {children.map((_, index) => (
-          <StyledMark
-            key={index}
-            isActive={index === activeIndex}
-            onClick={() => setActiveIndex(index)}
-          />
-        ))}
-      </StyledMarksWrapper> */}
     </StyledWrapper>
   )
 }
@@ -68,10 +57,14 @@ function Carousel({ children, timeout, ...rest }) {
 Carousel.propTypes = {
   children: PropTypes.node.isRequired,
   timeout: PropTypes.number,
+  index: PropTypes.number,
+  onChangeIndex: PropTypes.func,
 }
 
 Carousel.defaultProps = {
   timeout: 5000,
+  index: 0,
+  onChangeIndex: () => null,
 }
 
 export default Carousel

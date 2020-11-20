@@ -1,64 +1,33 @@
-import React, { useState } from 'react'
-import styled from 'styled-components'
-import ButtonUI from '../Button'
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Button } from './styles'
 
-const getBorder = ({ theme, isFirst, isLast }) => {
-  if (isFirst) return `${theme.borders.radius} 0px 0px ${theme.borders.radius}`
-  if (isLast) return `0px ${theme.borders.radius} ${theme.borders.radius} 0px`
-  return 0
-}
-
-const getBorderWhenColumn = ({ theme, isFirst, isLast }) => {
-  if (isFirst) return `${theme.borders.radius} ${theme.borders.radius} 0px 0px`
-  if (isLast) return `0px 0px ${theme.borders.radius} ${theme.borders.radius}`
-  return 0
-}
-
-const Button = styled(ButtonUI)`
-  background: ${({ theme, isActive, color }) => {
-    if (color) return theme.colors[color]
-    if (isActive) return theme.colors.primary
-    return 'transparent'
-  }};
-  color: ${({ theme, isActive, color }) => {
-    if (color) return theme.colors.white
-    if (isActive) return theme.colors.white
-    return theme.colors.primary
-  }};
-
-  border-radius: ${getBorder};
-  width: ${({ buttonSize }) => `${buttonSize}%`};
-  min-width: 10px;
-  padding: ${({ small }) => (small ? '4px 2px' : undefined)};
-
-  /* Ignore grid rules */
-  margin: 0 !important;
-
-  @media screen and (max-width: 700px) {
-    width: 100%;
-    border-radius: ${getBorderWhenColumn};
-  }
-`
-
-function ButtonGroup({ children, selectedIndex, ...rest }) {
-  const [activeItem, setActiveItem] = useState(selectedIndex)
-
-  return children.map((c, index) =>
+function ButtonGroup({ children, index, ...rest }) {
+  return children.map((c, childIndex) =>
     React.cloneElement(c, {
       ...c,
-      key: index,
+      key: childIndex,
       onClick: () => {
         if (c.onClick) c.onClick()
-        setActiveItem(index)
       },
-      isActive: index === activeItem,
-      isFirst: index === 0,
-      isLast: index === children.length - 1,
+      isActive: childIndex === index,
+      isFirst: childIndex === 0,
+      isLast: childIndex === children.length - 1,
       buttonSize: 100 / children.length,
       ...rest,
     })
   )
 }
 
+ButtonGroup.propTypes = {
+  children: PropTypes.node.isRequired,
+  index: PropTypes.number,
+}
+
+ButtonGroup.defaultProps = {
+  index: undefined,
+}
+
 ButtonGroup.Button = Button
+
 export default ButtonGroup

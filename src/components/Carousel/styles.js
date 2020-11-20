@@ -10,7 +10,7 @@ export const StyledWrapper = styled.div`
     height: 40vh;
   }
 
-  @media screen and (max-width: 700px) {
+  ${({ theme }) => theme.breakPoints.sm} {
     height: 20vh;
 
     & img {

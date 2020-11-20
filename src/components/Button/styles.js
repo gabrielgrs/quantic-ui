@@ -1,44 +1,52 @@
 import styled from 'styled-components'
 import { rgba } from 'polished'
 
-function getBackground({ theme, primary, secondary, gradient, info, link, danger }) {
-  if (gradient)
+function getBackground({ theme, color, outline }, isHovered) {
+  if (color === 'gradient')
     return `linear-gradient(to right, ${theme.colors.primary} 0%, ${rgba(
       theme.colors.primary,
       theme.opacities.default
     )} 100%);`
-  if (danger) return theme.colors.danger
-  if (primary) return theme.colors.primary
-  if (secondary) return theme.colors.secondary
-  if (info) return theme.colors.whiteDark
-  if (link) return 'transparent'
+  if (color === 'link' || outline) {
+    if (isHovered) return theme.colors[color]
+    return 'transparent'
+  }
+  if (color === 'danger') return theme.colors.danger
+  if (color === 'secondary') return theme.colors.secondary
+  if (color === 'info') return theme.colors.whiteDark
+  if (color === 'primary') return theme.colors.primary
 }
 
-function getFontColor({ theme, info, link }) {
-  if (info) return theme.colors.black
-  if (link) return theme.colors.black
+function getFontColor({ theme, color, outline }, isHovered) {
+  if (outline) {
+    if (isHovered) {
+      if (['secondary'].includes(color)) return theme.colors.whiteLight
+      return theme.colors.white
+    }
+    return theme.colors[color]
+  }
+  if (['info', 'link'].includes(color)) return theme.colors.black
   return theme.colors.white
 }
 
-function getOpacity({ theme, disabled, loading }) {
+function getOpacity({ theme, disabled }) {
   if (disabled) return theme.opacities.default
-  if (loading) return theme.opacities.soft
   return 1
 }
 
-function getBorder({ theme, isOutline, color, link }) {
-  if (!isOutline || link) return 'none'
+function getBorder({ theme, outline, color }) {
+  if (!outline || color === 'link') return 'none'
   return `solid ${theme.colors[color]}`
 }
 
-function getBoxShadowOnHover({ theme, info, link }) {
-  if (link) return 'none'
-  if (info) return theme.shadows.box.medium
+function getBoxShadowOnHover({ theme, color }) {
+  if (color === 'link') return 'none'
+  if (color === 'info') return theme.shadows.box.medium
   return theme.shadows.box.field
 }
 
 export const StyledButton = styled.button`
-  cursor: ${({ disabled, loading }) => (disabled || loading ? 'not-allowed' : 'pointer')};
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
   color: ${getFontColor};
   background: ${getBackground};
   border: ${getBorder};
@@ -51,6 +59,7 @@ export const StyledButton = styled.button`
   border-radius: ${({ theme }) => theme.borders.radius};
   font-weight: ${({ theme }) => theme.tipographies.weight.bold};
   letter-spacing: 1px;
+  transition: ${({ theme }) => theme.transitions('background-color')};
 
   position: relative;
   overflow: hidden;
@@ -71,14 +80,6 @@ export const StyledButton = styled.button`
     align-items: center;
   }
 
-  #leftIcon {
-    padding-right: 5px;
-  }
-
-  #rightIcon {
-    padding-left: 5px;
-  }
-
   :active,
   :focus {
     outline: none;
@@ -86,9 +87,11 @@ export const StyledButton = styled.button`
 
   &:hover {
     box-shadow: ${getBoxShadowOnHover};
+    background: ${(props) => getBackground(props, true)};
+    color: ${(props) => getFontColor(props, true)};
   }
 
   :active {
-    transform: ${({ disabled, loading }) => (!disabled && !loading ? `translate(1px, -1px)` : null)};
+    transform: ${({ disabled }) => (!disabled ? `translate(1px, -1px)` : null)};
   }
 `
