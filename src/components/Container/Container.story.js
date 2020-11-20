@@ -10,4 +10,6 @@ const Template = (args) => <Container {...args}>Container</Container>
 
 export const Default = Template.bind({})
 
-Default.args = {}
+Default.args = {
+  ...Container.defaultProps,
+}

@@ -1,6 +1,6 @@
 import React from 'react'
 import theme from '../index'
-import { Row, Column } from '../../components'
+import { Row, Column } from '../../../components'
 
 export default {
   title: 'theme/tipographies',
@@ -45,7 +45,7 @@ const Size = () => (
   </>
 )
 
-export const Base = () => {
+const Template = () => {
   return (
     <Row>
       <Column size={12}>
@@ -57,3 +57,9 @@ export const Base = () => {
     </Row>
   )
 }
+
+export const Default = Template.bind({})
+
+export const Structure = () => <div>tipographies: theme.tipographies.type.primary</div>
+
+Default.args = {}

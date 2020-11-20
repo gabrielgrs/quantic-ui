@@ -6,12 +6,11 @@ export default {
   // parameters: { jest: ['Heading.spec.js'] },
 }
 
-const Template = (args) => <Heading {...args}>Floating button</Heading>
+const Template = (args) => <Heading {...args} />
 
 export const Default = Template.bind({})
 
 Default.args = {
-  h1: true,
-  h2: false,
-  h3: false,
+  ...Heading.defaultProps,
+  children: '',
 }

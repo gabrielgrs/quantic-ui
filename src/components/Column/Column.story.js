@@ -18,5 +18,5 @@ const Template = () => (
 export const Default = Template.bind({})
 
 Default.args = {
-  checked: true,
+  ...Column.defaultProps,
 }

@@ -11,6 +11,5 @@ const Template = (args) => <Card {...args} />
 export const Default = Template.bind({})
 
 Default.args = {
-  alt: 'Sociologia da Administração, 2ª edição',
-  banner: 'https://app.lit.com.br/api/images/courses/1$_$660.jpg',
+  children: 'Card Content',
 }

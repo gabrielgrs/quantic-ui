@@ -16,7 +16,6 @@ const Template = (args) => (
 export const Default = Template.bind({})
 
 Default.args = {
+  ...ButtonGroup.defaultProps,
   children: 'Button',
-  primary: true,
-  selectedIndex: 1,
 }

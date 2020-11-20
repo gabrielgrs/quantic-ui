@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Sidebar from './index'
-import Button from '../Button'
 
 export default {
   title: 'Components/Sidebar',
@@ -8,21 +7,12 @@ export default {
 }
 
 const Template = (args) => {
-  const [isOpen, setIsOpen] = useState(false)
-
-  return (
-    <div style={{ display: 'relative' }}>
-      <Button info onClick={() => setIsOpen(true)}>
-        Open Sidebar
-      </Button>
-      <Sidebar {...args} isOpen={isOpen} onSave={() => setIsOpen(false)} onClose={() => setIsOpen(false)} />
-    </div>
-  )
+  return <Sidebar {...args} />
 }
 
 export const Default = Template.bind({})
 
 Default.args = {
-  title: 'Sidebar Title',
+  ...Sidebar.defaultProps,
   children: 'Children',
 }

@@ -6,8 +6,11 @@ export default {
   // parameters: { jest: ['FloatingButton.spec.js'] },
 }
 
-const Template = (args) => <FloatingButton {...args}>Floating button</FloatingButton>
+const Template = (args) => <FloatingButton {...args} />
 
 export const Default = Template.bind({})
 
-Default.args = {}
+Default.args = {
+  ...FloatingButton.defaultProps,
+  children: 'Floating Button',
+}

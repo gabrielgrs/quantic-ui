@@ -1,12 +1,12 @@
 import React from 'react'
 import theme from '../index'
-import { Row, Column } from '../../components'
+import { Row, Column } from '../../../components'
 
 export default {
   title: 'theme/opacities',
 }
 
-export const Base = () => {
+const Template = () => {
   return (
     <Row>
       <Column size={12}>
@@ -20,3 +20,9 @@ export const Base = () => {
     </Row>
   )
 }
+
+export const Default = Template.bind({})
+
+export const Structure = () => <div>opacities: theme.opacities.default</div>
+
+Default.args = {}

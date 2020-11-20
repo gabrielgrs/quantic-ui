@@ -11,6 +11,7 @@ const Template = (args) => <Section {...args} />
 export const Default = Template.bind({})
 
 Default.args = {
+  ...Section.defaultProps,
   header: 'Header',
   isOpen: true,
   children: 'Section content',

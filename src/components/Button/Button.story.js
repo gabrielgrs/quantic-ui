@@ -11,6 +11,6 @@ const Template = (args) => <Button {...args} />
 export const Default = Template.bind({})
 
 Default.args = {
+  ...Button.defaultProps,
   children: 'Button',
-  primary: true,
 }
