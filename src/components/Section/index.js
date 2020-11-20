@@ -50,7 +50,7 @@ function Section({ children, header, onClick, isOpen }) {
           <strong>{header}</strong>
         </div>
         <div>
-          {isOpen ? <Icon category="feather" name="FiChevronDown" /> : <Icon category="feather" name="FiChevronLeft" />}
+          {isOpen ? <Icon category="feather" name="FiChevronDown" /> : <Icon category="feather" name="FiChevronUp" />}
         </div>
       </StyledSection>
       {isOpen && <StyledContent>{children}</StyledContent>}

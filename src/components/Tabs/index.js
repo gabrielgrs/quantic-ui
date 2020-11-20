@@ -21,7 +21,7 @@ const Wrapper = styled.div`
   display: flex;
   overflow: hidden;
 
-  @media screen and (max-width: 700px) {
+  ${({ theme }) => theme.breakPoints.sm} {
     justify-content: space-between;
   }
 `
@@ -45,7 +45,7 @@ const Tab = styled.div`
     bottom: -7px;
   }
 
-  @media screen and (max-width: 700px) {
+  ${({ theme }) => theme.breakPoints.sm} {
     width: 100%;
     margin: 0;
   }

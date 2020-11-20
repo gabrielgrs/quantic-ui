@@ -1,49 +1,29 @@
-import React, { useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
-import Checkbox from '../Checkbox'
 import { StyledRadioGroup } from './styles'
 
-function StyledRadio(props) {
-  const { onChange, options, name, value, isVertical } = props
-  const [selectedValue, setSelectedValue] = useState(value)
-
-  const onChangeRadio = (selected) => {
-    setSelectedValue(selected.key)
-    onChange({ target: { name, value: selected.key } })
-  }
+function RadioGroup(props) {
+  const { children, onChange, name, value, isVertical } = props
 
   return (
-    <StyledRadioGroup isVertical={isVertical}>
-      {options.map((x) => (
-        <Checkbox
-          key={x.key}
-          name={x.key}
-          onChange={() => onChangeRadio(x)}
-          checked={selectedValue === x.key}
-          label={x.label || x.key}
-          isRadio
-        />
-      ))}
+    <StyledRadioGroup name={name} isVertical={isVertical}>
+      {children.map((c) => React.cloneElement(c, { onChange, value }))}
     </StyledRadioGroup>
   )
 }
 
-StyledRadio.propTypes = {
-  onChange: PropTypes.func.isRequired,
-  options: PropTypes.arrayOf(
-    PropTypes.shape({
-      label: PropTypes.string,
-      key: PropTypes.string,
-    })
-  ).isRequired,
+RadioGroup.propTypes = {
+  children: PropTypes.node.isRequired,
+  onChange: PropTypes.func,
   name: PropTypes.string.isRequired,
   value: PropTypes.string,
   isVertical: PropTypes.bool,
 }
 
-StyledRadio.defaultProps = {
+RadioGroup.defaultProps = {
   isVertical: false,
   value: undefined,
+  onChange: () => null,
 }
 
-export default StyledRadio
+export default RadioGroup

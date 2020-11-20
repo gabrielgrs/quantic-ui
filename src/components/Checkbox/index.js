@@ -1,25 +1,19 @@
-import React, { useState, forwardRef } from 'react'
+import React, { forwardRef } from 'react'
 import PropTypes from 'prop-types'
 import { StyledWrapper, StyledCheckbox, StyledCheckboxContainer, StyledHiddenCheckbox, StyledIcon } from './styles'
 import Label from '../Label'
 
 const Checkbox = forwardRef((props, ref) => {
-  const { className, checked, label, onChange, ...rest } = props
-  const [isChecked, setIsChecked] = useState(Boolean(checked))
+  const { className, checked, label, onChange, style, ...rest } = props
 
   return (
     <StyledWrapper>
       <StyledCheckboxContainer
-        onClick={() => {
-          setIsChecked(!isChecked)
-          if (onChange) {
-            onChange({ target: { name: rest.name, value: !isChecked } })
-          }
-        }}
+        onClick={(e) => onChange({ ...e, target: { name: rest.name, value: checked } })}
         className={className}
       >
-        <StyledHiddenCheckbox ref={ref} defaultChecked={isChecked} onChange={onChange} checked={isChecked} {...rest} />
-        <StyledCheckbox checked={isChecked}>
+        <StyledHiddenCheckbox ref={ref} defaultChecked={checked} onChange={onChange} checked={checked} {...rest} />
+        <StyledCheckbox checked={checked} style={style}>
           <StyledIcon viewBox="0 0 24 24">
             <polyline points="20 6 9 17 4 12" />
           </StyledIcon>
@@ -37,6 +31,7 @@ Checkbox.propTypes = {
   isRequired: PropTypes.bool,
   className: PropTypes.string,
   name: PropTypes.string.isRequired,
+  style: PropTypes.shape({}),
 }
 
 Checkbox.defaultProps = {
@@ -45,6 +40,7 @@ Checkbox.defaultProps = {
   isRequired: false,
   onChange: () => null,
   className: '',
+  style: {},
 }
 
 export default Checkbox

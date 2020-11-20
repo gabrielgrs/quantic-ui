@@ -1,5 +1,5 @@
 import React from 'react'
-import theme from '../index'
+import { borders } from '../index'
 import { Row, Column } from '../../../components'
 
 export default {
@@ -11,9 +11,9 @@ const Template = () => (
     <Column size={12}>
       <h2>Border Radius</h2>
     </Column>
-    {Object.keys(theme.borders).map((c) => (
+    {Object.keys(borders).map((c) => (
       <Column size={12}>
-        <strong>{c}:</strong> {theme.borders[c]}
+        <strong>{c}:</strong> {borders[c]}
       </Column>
     ))}
   </Row>

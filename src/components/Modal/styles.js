@@ -18,7 +18,7 @@ export const Wrapper = styled.div`
   top: 50%;
   transform: translate(-50%, -50%);
 
-  @media screen and (max-width: 700px) {
+  ${({ theme }) => theme.breakPoints.sm} {
     min-width: 95%;
   }
 `
@@ -36,7 +36,7 @@ export const ModalContent = styled.div`
   background: ${({ theme }) => theme.colors.silverSky};
   border-radius: ${({ theme }) => theme.borders.radius};
 
-  @media screen and (max-width: 700px) {
+  ${({ theme }) => theme.breakPoints.sm} {
     min-width: 0;
   }
 `

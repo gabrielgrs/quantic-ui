@@ -13,7 +13,11 @@ function FloatingButton({ children, onClick, ...rest }) {
 
 FloatingButton.propTypes = {
   children: PropTypes.oneOfType([PropTypes.node, PropTypes.array]).isRequired,
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
+}
+
+FloatingButton.defaultProps = {
+  onClick: () => null,
 }
 
 export default FloatingButton

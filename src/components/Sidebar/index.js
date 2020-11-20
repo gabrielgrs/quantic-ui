@@ -72,12 +72,13 @@ Sidebar.propTypes = {
   hideOverlay: PropTypes.bool,
   showScrollbarWhenOpen: PropTypes.bool,
 }
+
 Sidebar.defaultProps = {
   isOpen: false,
   position: 'left',
   children: null,
   onClose: () => null,
-  top: '70px',
+  top: '0px',
   hideOverlay: false,
   showScrollbarWhenOpen: true,
 }

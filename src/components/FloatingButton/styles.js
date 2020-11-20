@@ -35,7 +35,7 @@ export const StyledFloatingButton = styled.div`
     box-shadow: ${({ theme }) => rgba(theme.colors.primary, 0.2)} 0 1px 3px 2px;
   }
 
-  @media screen and (max-width: 700px) {
+  ${({ theme }) => theme.breakPoints.sm} {
     right: 10px;
     bottom: 60px;
   }

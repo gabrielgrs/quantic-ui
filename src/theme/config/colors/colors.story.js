@@ -1,5 +1,5 @@
 import React from 'react'
-import theme from '../index'
+import { colors } from '../index'
 import { Row, Column } from '../../../components'
 
 export default {
@@ -11,9 +11,9 @@ const Template = () => (
     <Column size={12}>
       <h2>Colors</h2>
     </Column>
-    {Object.keys(theme.colors).map((c) => (
-      <Column size={12} style={{ background: theme.colors[c], padding: 5 }}>
-        <strong>{c}:</strong> {theme.colors[c]}
+    {Object.keys(colors).map((c) => (
+      <Column size={12} style={{ background: colors[c], padding: 5 }}>
+        <strong>{c}:</strong> {colors[c]}
       </Column>
     ))}
   </Row>

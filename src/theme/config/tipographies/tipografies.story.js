@@ -1,5 +1,5 @@
 import React from 'react'
-import theme from '../index'
+import { tipographies } from '../index'
 import { Row, Column } from '../../../components'
 
 export default {
@@ -11,9 +11,9 @@ const Types = () => (
     <Column size={12}>
       <h3>Types</h3>
     </Column>
-    {Object.keys(theme.tipographies.type).map((t) => (
+    {Object.keys(tipographies.type).map((t) => (
       <Column size={12}>
-        <strong>{t}</strong>: {theme.tipographies.type[t]}
+        <strong>{t}</strong>: {tipographies.type[t]}
       </Column>
     ))}
   </>
@@ -24,9 +24,9 @@ const Weight = () => (
     <Column size={12}>
       <h3>Weighties</h3>
     </Column>
-    {Object.keys(theme.tipographies.weight).map((t) => (
+    {Object.keys(tipographies.weight).map((t) => (
       <Column size={12}>
-        <strong>{t}</strong>: {theme.tipographies.weight[t]}
+        <strong>{t}</strong>: {tipographies.weight[t]}
       </Column>
     ))}
   </>
@@ -37,9 +37,9 @@ const Size = () => (
     <Column size={12}>
       <h3>Sizes</h3>
     </Column>
-    {Object.keys(theme.tipographies.size).map((t) => (
+    {Object.keys(tipographies.size).map((t) => (
       <Column size={12}>
-        <strong>{t}</strong>: {theme.tipographies.size[t]}
+        <strong>{t}</strong>: {tipographies.size[t]}
       </Column>
     ))}
   </>

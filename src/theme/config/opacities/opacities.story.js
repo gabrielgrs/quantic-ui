@@ -1,5 +1,5 @@
 import React from 'react'
-import theme from '../index'
+import { opacities } from '../index'
 import { Row, Column } from '../../../components'
 
 export default {
@@ -12,9 +12,9 @@ const Template = () => {
       <Column size={12}>
         <h2>Opacities</h2>
       </Column>
-      {Object.keys(theme.opacities).map((c) => (
+      {Object.keys(opacities).map((c) => (
         <Column size={12}>
-          <strong>{c}:</strong> {theme.opacities[c]}
+          <strong>{c}:</strong> {opacities[c]}
         </Column>
       ))}
     </Row>

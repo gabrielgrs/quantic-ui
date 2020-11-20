@@ -1,5 +1,5 @@
 import React from 'react'
-import theme from '../index'
+import { shadows } from '../index'
 import { Row, Column } from '../../../components'
 
 export default {
@@ -10,10 +10,10 @@ const Template = () => {
   return (
     <>
       <h2>Shadows Box</h2>
-      {Object.keys(theme.shadows.box).map((c) => (
+      {Object.keys(shadows.box).map((c) => (
         <Row>
           <Column size={12}>
-            <strong>{c}:</strong> {theme.shadows.box[c]}
+            <strong>{c}:</strong> {shadows.box[c]}
           </Column>
         </Row>
       ))}
