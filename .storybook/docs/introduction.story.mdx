@@ -6,3 +6,29 @@ import { Meta } from '@storybook/addon-docs/blocks'
 # 🎨 LIT UI
 
 LIT UI is a framework
+
+# Installation
+
+<strong>npm install quantic-UI</strong>
+
+or
+
+<strong>yarn add quantic-UI</strong>
+
+# Usage
+
+```javascript
+import { QuanticProvider, createTheme, Button } from 'quantic-ui'
+
+function App() {
+  const theme = createTheme()
+
+  return (
+    <QuanticProvider theme={theme}>
+      <Button onClick={() => console.log('clicked')}>Click Me</Button>
+    </QuanticProvider>
+  )
+}
+
+export default App
+```

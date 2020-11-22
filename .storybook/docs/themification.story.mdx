@@ -1,0 +1,104 @@
+import { Image } from 'components'
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Themification" />
+
+# 🎨 Themification
+
+## Overriding
+
+You can apply the desired properties and the rest will be combined
+
+```javascript
+import { createTheme } from 'quantic-ui'
+
+const theme = createTheme({
+  borders: {
+    radius: '6px',
+  },
+  colors: {
+    primary: '#27aae1',
+    primaryLight: '#3db3e4',
+    primaryDark: '#1d9cd1',
+    secondary: '#8ee67b',
+    secondaryLight: '#a0ea90',
+    secondaryDark: '#7ce266',
+    silver: '#bbbebf',
+    silverLight: '#c8cbcb',
+    silverDark: '#aeb1b3',
+    silverSky: '#F8F8FC',
+    silverSkyLight: '#fff',
+    silverSkyDark: '#e6e6f4',
+    white: '#FFFFFF',
+    whiteLight: '#fff',
+    whiteDark: '#f2f2f2',
+    black: '#2b2b2b',
+    blackLight: '#383838',
+    blackDark: '#1e1e1e',
+    success: '#5ACC5A',
+    successLight: '#6dd26d',
+    successDark: '#47c647',
+    warning: '#FFC247',
+    warningLight: '#ffca61',
+    warningDark: '#ffba2d',
+    danger: '#CC001B',
+    dangerLight: '#e6001e',
+    dangerDark: '#b30018',
+  },
+  opacities: {
+    default: 0.5,
+    soft: 0.8,
+  },
+  shadows: {
+    box: {
+      soft: '0px 0px 4px 0px rgba(0,0,0,0.50)',
+      medium: '0px 0px 8px 0px rgba(0,0,0,0.50)',
+      hard: '0px 0px 10px 0px rgba(0,0,0,0.50)',
+      navbar: '0px 3px 10px 0px rgba(0, 0, 0, 0.5);',
+      field: '0px 1px 10px 0px rgba(43,43,43,0.3)',
+    },
+  },
+  spacings: {
+    xxs: '4px',
+    xs: '8px',
+    sm: '16px',
+    md: '24px',
+    lg: '32px',
+    xl: '40px',
+    xxl: '48px',
+  },
+  tipographies: {
+    type: {
+      primary: 'Open Sans',
+      secondary: 'Montserrat',
+    },
+    weight: {
+      regular: 400,
+      bold: 600,
+      extrabold: 800,
+      black: 900,
+    },
+    size: {
+      xxs: '8px',
+      xs: '12px',
+      sm: '16px',
+      md: '24px',
+      lg: '32px',
+      xl: '40px',
+      xxl: '48px',
+    },
+  },
+  zIndexes: {
+    base: 1,
+    soft: 2,
+    medium: 3,
+    hard: 8,
+    over: 9,
+  },
+  breakPoints: {
+    sm: '@media screen and (max-width: 700px)',
+    md: '@media screen and (max-width: 992px)',
+    lg: '@media screen and (max-width: 1200px)',
+  },
+})
+```
