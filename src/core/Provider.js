@@ -1,15 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { ThemeProvider as StyledThemeProvider } from 'styled-components'
-import { AuthProvider, LayoutProvider } from '../hooks'
+import { AuthProvider, LayoutProvider, AlertProvider } from '../hooks'
 import createTheme from '../theme/helpers/createTheme'
 
 function Provider({ children, theme, appName }) {
   return (
     <LayoutProvider appName={appName}>
-      <AuthProvider>
-        <StyledThemeProvider theme={theme}>{children}</StyledThemeProvider>
-      </AuthProvider>
+      <AlertProvider>
+        <AuthProvider>
+          <StyledThemeProvider theme={theme}>{children}</StyledThemeProvider>
+        </AuthProvider>
+      </AlertProvider>
     </LayoutProvider>
   )
 }
