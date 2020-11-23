@@ -8,7 +8,7 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "start": "start-storybook -p 6006 -s public",
+    "start": "start-storybook -p 3003 -s public",
     "build": "BABEL_ENV=production babel src -d dist",
     "build:storybook": "build-storybook -s public",
     "lint": "eslint src --max-warnings=0",

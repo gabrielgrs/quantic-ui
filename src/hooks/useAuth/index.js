@@ -33,8 +33,8 @@ function AuthProvider({ children }) {
 
 function useAuth() {
   const context = useContext(AuthContext)
-  const { email, tone, isAuthenticated, signIn, signOut } = context
-  return { email, tone, isAuthenticated, signIn, signOut }
+  const { email, isAuthenticated, signIn, signOut } = context
+  return { email, isAuthenticated, signIn, signOut }
 }
 
 AuthProvider.propTypes = {
