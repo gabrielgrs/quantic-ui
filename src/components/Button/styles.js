@@ -1,32 +1,32 @@
 import styled from 'styled-components'
 import { rgba } from 'polished'
 
-function getBackground({ theme, color, outline }, isHovered) {
-  if (color === 'gradient')
+function getBackground({ theme, background, outline }, isHovered) {
+  if (background === 'gradient')
     return `linear-gradient(to right, ${theme.colors.primary} 0%, ${rgba(
       theme.colors.primary,
       theme.opacities.default
     )} 100%);`
-  if (color === 'link' || outline) {
-    if (isHovered) return theme.colors[color]
+  if (background === 'link' || outline) {
+    if (isHovered) return theme.colors[background]
     return 'transparent'
   }
-  if (color === 'danger') return theme.colors.danger
-  if (color === 'secondary') return theme.colors.secondary
-  if (color === 'info') return theme.colors.whiteDark
-  if (color === 'primary') return theme.colors.primary
+  if (background === 'danger') return theme.colors.danger
+  if (background === 'secondary') return theme.colors.secondary
+  if (background === 'info') return theme.colors.whiteDark
+  if (background === 'primary') return theme.colors.primary
 }
 
-function getFontColor({ theme, color, outline }, isHovered) {
+function getFontColor({ theme, color, background, outline }, isHovered) {
   if (outline) {
     if (isHovered) {
-      if (['secondary'].includes(color)) return theme.colors.whiteLight
+      if (['secondary'].includes(background)) return theme.colors.whiteLight
       return theme.colors.white
     }
-    return theme.colors[color]
+    return theme.colors[background]
   }
-  if (['info', 'link'].includes(color)) return theme.colors.black
-  return theme.colors.white
+  if (['info', 'link'].includes(background)) return theme.colors.black
+  return theme.colors[color]
 }
 
 function getOpacity({ theme, disabled }) {

@@ -11,6 +11,8 @@ const Template = (args) => <Button {...args} />
 export const Default = Template.bind({})
 
 Default.args = {
-  ...Button.defaultProps,
-  children: 'Button',
+  children: 'Button content',
+  background: 'primary',
+  color: 'white',
+  disabled: false,
 }

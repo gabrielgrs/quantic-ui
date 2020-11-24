@@ -12,4 +12,5 @@ export const Default = Template.bind({})
 
 Default.args = {
   children: 'Label Text',
+  required: false,
 }

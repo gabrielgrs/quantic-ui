@@ -3,10 +3,16 @@ import PropTypes from 'prop-types'
 import { StyledRadio } from './styles'
 
 function Radio(props) {
-  const { checked, onChange, label, value, id } = props
+  const { checked, onChange, label, value, id, ...rest } = props
 
   return (
-    <StyledRadio style={{ borderRadius: 100 }} onChange={onChange} checked={checked || id === value} label={label} />
+    <StyledRadio
+      {...rest}
+      style={{ borderRadius: 100 }}
+      onChange={onChange}
+      checked={checked || id === value}
+      label={label}
+    />
   )
 }
 

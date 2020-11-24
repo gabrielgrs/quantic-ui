@@ -1,13 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
 
-const Wrapper = styled.div`
-  border: ${({ theme }) => `solid 1px ${theme.colors.silver}`};
-  border-radius: ${({ theme }) => theme.borders.radius};
-  padding: ${({ theme }) => theme.spacings.xs};
-  background: ${({ theme }) => theme.colors.silverSky};
-`
+import { Wrapper } from './styles'
 
 function Card({ children, onClick, ...rest }) {
   return (

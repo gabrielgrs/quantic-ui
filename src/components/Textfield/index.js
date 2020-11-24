@@ -5,13 +5,13 @@ import { StyledTextField, FieldWrapper, EyeIcon } from './styles'
 import Label from '../Label'
 import InputError from '../InputError'
 
-const TextField = forwardRef((props, ref) => {
-  const { label, fullWidth, error, type } = props
+function TextField(props, ref) {
+  const { label, fullWidth, error, required, type } = props
   const [showPassword, setShowPassword] = useState(false)
 
   return (
     <div>
-      <Label isRequired={props.isRequired}>{label}</Label>
+      <Label required={required}>{label}</Label>
       <FieldWrapper>
         <InputMask type={type} {...props}>
           {(inputProps) => (
@@ -37,24 +37,24 @@ const TextField = forwardRef((props, ref) => {
       <InputError>{error}</InputError>
     </div>
   )
-})
+}
 
 TextField.propTypes = {
   name: PropTypes.string,
   label: PropTypes.string,
   fullWidth: PropTypes.bool,
   type: PropTypes.string,
-  isRequired: PropTypes.bool,
+  required: PropTypes.bool,
   error: PropTypes.string,
 }
 
 TextField.defaultProps = {
   fullWidth: false,
-  isRequired: false,
+  required: false,
   error: undefined,
   type: 'text',
   name: undefined,
   label: undefined,
 }
 
-export default TextField
+export default forwardRef(TextField)

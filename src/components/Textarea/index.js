@@ -4,7 +4,7 @@ import { StyledTextarea } from './styles'
 import Label from '../Label'
 import InputError from '../InputError'
 
-const TextArea = forwardRef((props, ref) => {
+function TextArea(props, ref) {
   const { onChange, value, label, type, name, error, ...rest } = props
 
   return (
@@ -14,12 +14,12 @@ const TextArea = forwardRef((props, ref) => {
       <InputError>{error}</InputError>
     </div>
   )
-})
+}
 
 TextArea.propTypes = {
   onChange: PropTypes.func,
   value: PropTypes.string,
-  isRequired: PropTypes.bool,
+  required: PropTypes.bool,
   label: PropTypes.string,
   type: PropTypes.string,
   name: PropTypes.string.isRequired,
@@ -28,11 +28,11 @@ TextArea.propTypes = {
 
 TextArea.defaultProps = {
   onChange: () => null,
-  isRequired: false,
+  required: false,
   value: undefined,
   label: undefined,
   type: 'text',
   error: undefined,
 }
 
-export default TextArea
+export default forwardRef(TextArea)

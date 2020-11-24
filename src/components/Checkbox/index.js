@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { StyledWrapper, StyledCheckbox, StyledCheckboxContainer, StyledHiddenCheckbox, StyledIcon } from './styles'
 import Label from '../Label'
 
-const Checkbox = forwardRef((props, ref) => {
+function Checkbox(props, ref) {
   const { className, checked, label, onChange, style, ...rest } = props
 
   return (
@@ -19,16 +19,16 @@ const Checkbox = forwardRef((props, ref) => {
           </StyledIcon>
         </StyledCheckbox>
       </StyledCheckboxContainer>
-      <Label isRequired={rest.isRequired}>{label}</Label>
+      <Label required={rest.required}>{label}</Label>
     </StyledWrapper>
   )
-})
+}
 
 Checkbox.propTypes = {
   label: PropTypes.string,
   checked: PropTypes.bool,
   onChange: PropTypes.func,
-  isRequired: PropTypes.bool,
+  required: PropTypes.bool,
   className: PropTypes.string,
   name: PropTypes.string.isRequired,
   style: PropTypes.shape({}),
@@ -37,10 +37,10 @@ Checkbox.propTypes = {
 Checkbox.defaultProps = {
   label: undefined,
   checked: false,
-  isRequired: false,
+  required: false,
   onChange: () => null,
   className: '',
   style: {},
 }
 
-export default Checkbox
+export default forwardRef(Checkbox)

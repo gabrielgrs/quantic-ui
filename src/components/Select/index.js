@@ -6,14 +6,13 @@ import { StyledSelect, customStyles } from './styles'
 import Label from '../Label'
 import InputError from '../InputError'
 
-const Select = forwardRef((props, ref) => {
-  const { label, isRequired, error, name, ...rest } = props
-
+function Select(props, ref) {
+  const { label, required, error, name, ...rest } = props
   const { theme } = useLayout()
 
   return (
     <div>
-      <Label isRequired={isRequired}>{label}</Label>
+      <Label required={required}>{label}</Label>
       <StyledSelect
         {...rest}
         ref={ref}
@@ -24,12 +23,12 @@ const Select = forwardRef((props, ref) => {
       <InputError>{error}</InputError>
     </div>
   )
-})
+}
 
 Select.propTypes = {
   placeholder: PropTypes.string,
   label: PropTypes.string,
-  isRequired: PropTypes.bool,
+  required: PropTypes.bool,
   error: PropTypes.string,
   name: PropTypes.string.isRequired,
 }
@@ -37,8 +36,8 @@ Select.propTypes = {
 Select.defaultProps = {
   placeholder: 'Selecione',
   label: undefined,
-  isRequired: false,
+  required: false,
   error: undefined,
 }
 
-export default Select
+export default forwardRef(Select)

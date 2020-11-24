@@ -33,7 +33,7 @@ const SideDrawer = Keyframes.Spring({
   close: { to: { x: 100 }, config: config.gentle },
 })
 
-function Sidebar({ children, isOpen, position, onClose, hideOverlay, showScrollbarWhenOpen, ...rest }) {
+function Sidebar({ children, isOpen, position, onClose, showScrollbarWhenOpen, ...rest }) {
   const sidebarRef = useRef()
 
   useOutsideClick(sidebarRef, () => {
@@ -44,7 +44,7 @@ function Sidebar({ children, isOpen, position, onClose, hideOverlay, showScrollb
 
   return (
     <>
-      <Overlay isOpen={!hideOverlay && isOpen} />
+      <Overlay isOpen={isOpen} />
       <SideDrawer native state={isOpen ? 'open' : 'close'}>
         {({ x }) => (
           <StyledDrawer
@@ -69,7 +69,6 @@ Sidebar.propTypes = {
   children: PropTypes.node,
   onClose: PropTypes.func,
   top: PropTypes.string,
-  hideOverlay: PropTypes.bool,
   showScrollbarWhenOpen: PropTypes.bool,
 }
 
@@ -79,7 +78,6 @@ Sidebar.defaultProps = {
   children: null,
   onClose: () => null,
   top: '0px',
-  hideOverlay: false,
   showScrollbarWhenOpen: true,
 }
 
